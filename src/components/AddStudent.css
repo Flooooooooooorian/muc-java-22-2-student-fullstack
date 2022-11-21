@@ -1,0 +1,13 @@
+.add-student__name {
+    padding: 16px;
+    font-size: 16px;
+    margin: 4px;
+}
+
+.add-student__button {
+    padding: 16px;
+    font-size: 16px;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+}
