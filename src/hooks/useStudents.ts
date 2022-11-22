@@ -2,9 +2,7 @@ import {useEffect, useState} from "react";
 import {NewStudent, Student} from "../model/Student";
 import axios from "axios";
 
-type UseStudentsReturnType = [Student[], (newStudent: NewStudent) => Promise<void>, (id: string) => void]
-
-export default function useStudents() : UseStudentsReturnType{
+export default function useStudents() {
 
     const [students, setStudents] = useState<Student[]>([])
 
@@ -37,5 +35,5 @@ export default function useStudents() : UseStudentsReturnType{
             })
     }
 
-    return [students, addStudent, removeStudent]
+    return {students, addStudent, removeStudent}
 }

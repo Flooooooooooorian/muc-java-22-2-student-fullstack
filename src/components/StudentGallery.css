@@ -5,3 +5,10 @@
     margin-top: 10px;
     border-top: black solid 2px;
 }
+
+
+.student-gallery__search {
+    padding: 16px;
+    font-size: 16px;
+    margin: 4px;
+}
