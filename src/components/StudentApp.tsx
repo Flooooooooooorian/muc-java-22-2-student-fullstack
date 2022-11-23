@@ -10,6 +10,7 @@ export default function StudentApp() {
     return (
         <div className={"student-app"}>
             <h1 className={"student-app__title"}>Students</h1>
+            <h2>Die neue Studenten Datenbank</h2>
             <AddStudent addStudent={addStudents}/>
             <StudentGallery students={students} removeStudent={removeStudent}/>
         </div>
