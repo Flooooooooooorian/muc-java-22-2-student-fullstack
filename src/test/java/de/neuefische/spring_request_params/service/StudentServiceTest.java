@@ -1,5 +1,6 @@
 package de.neuefische.spring_request_params.service;
 
+import de.neuefische.spring_request_params.model.Gender;
 import de.neuefische.spring_request_params.model.Student;
 import de.neuefische.spring_request_params.repo.StudentRepo;
 import org.junit.jupiter.api.Test;
@@ -22,10 +23,10 @@ class StudentServiceTest {
         //GIVEN
         when(studentRepo.getStudents()).thenReturn(
                 List.of(
-                        new Student("1", "Paul"),
-                        new Student("2", "Maria"),
-                        new Student("3", "Hannah"),
-                        new Student("4", "Marianne")
+                        new Student("1", "Paul", Gender.MALE),
+                        new Student("2", "Maria", Gender.FEMALE),
+                        new Student("3", "Hannah", Gender.MALE),
+                        new Student("4", "Marianne", Gender.DIVERS)
                 )
         );
         StudentService studentService = new StudentService(studentRepo, idService);

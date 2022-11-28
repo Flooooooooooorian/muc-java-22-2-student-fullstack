@@ -6,7 +6,15 @@ public class Student {
     private String id;
     private String name;
 
+    private Gender gender;
+
     public Student(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Student(String id, String name, Gender gender) {
+        this.gender = gender;
         this.id = id;
         this.name = name;
     }
@@ -17,6 +25,14 @@ public class Student {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Gender getGender() {
+        return gender.name();
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public String getName() {
