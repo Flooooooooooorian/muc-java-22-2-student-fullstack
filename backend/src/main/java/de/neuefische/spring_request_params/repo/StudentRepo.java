@@ -37,25 +37,4 @@ public class StudentRepo {
     public void delete(Student student) {
         students.remove(student);
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StudentRepo that = (StudentRepo) o;
-        return Objects.equals(students, that.students);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(students);
-    }
-
-
-    @Override
-    public String toString() {
-        return "StudentRepo{" +
-                "students=" + students +
-                '}';
-    }
 }

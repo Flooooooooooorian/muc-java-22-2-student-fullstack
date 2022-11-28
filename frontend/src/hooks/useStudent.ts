@@ -12,7 +12,7 @@ function useStudent(id: string | undefined) {
     }, [])
 
     function getStudentById(id: string) {
-        axios.get("/student/" + id)
+        axios.get("/students/" + id)
             .then(response => response.data)
             .then(data => {
                 setStudent(data)

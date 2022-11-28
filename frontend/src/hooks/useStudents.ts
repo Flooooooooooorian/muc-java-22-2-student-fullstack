@@ -11,7 +11,7 @@ export default function useStudents() {
     }, [])
 
     function getStudents() {
-        axios.get("/student")
+        axios.get("/students")
             .then(response => {
                 setStudents(response.data)
             })
@@ -19,14 +19,14 @@ export default function useStudents() {
     }
 
     function addStudent(newStudent: NewStudent) {
-        return axios.post("/student", newStudent)
+        return axios.post("/students", newStudent)
             .then(response => response.data)
             .then((savedStudent) => setStudents(prevState => [...prevState, savedStudent]))
             .catch(console.error)
     }
 
     function removeStudent(id: string) {
-        axios.delete(`/student/${id}`)
+        axios.delete(`/students/${id}`)
             .then(() => {
                 setStudents(prevState => {
                     return prevState.filter((student) => student.id !== id

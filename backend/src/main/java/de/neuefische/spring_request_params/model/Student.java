@@ -8,6 +8,9 @@ public class Student {
 
     private Gender gender;
 
+    public Student() {
+    }
+
     public Student(String id, String name) {
         this.id = id;
         this.name = name;
@@ -28,7 +31,7 @@ public class Student {
     }
 
     public Gender getGender() {
-        return gender.name();
+        return gender;
     }
 
     public void setGender(Gender gender) {
