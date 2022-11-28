@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/frontend/frontend.iml" filepath="$PROJECT_DIR$/frontend/frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/muc-java-22-2-studentdb-react.iml" filepath="$PROJECT_DIR$/muc-java-22-2-studentdb-react.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/spring_request_params.iml" filepath="$PROJECT_DIR$/backend/spring_request_params.iml" />
     </modules>
   </component>
 </project>
