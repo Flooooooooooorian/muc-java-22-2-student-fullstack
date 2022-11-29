@@ -9,6 +9,7 @@ function useStudent(id: string | undefined) {
         if (id) {
             getStudentById(id)
         }
+        //eslint-disable-next-line
     }, [])
 
     function getStudentById(id: string) {
