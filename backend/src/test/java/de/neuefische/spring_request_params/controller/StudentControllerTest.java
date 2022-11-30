@@ -36,7 +36,7 @@ class StudentControllerTest {
     @DirtiesContext
     void getStudents() throws Exception {
 
-        mockMvc.perform(get("/students"))
+        mockMvc.perform(get("/api/students"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("[]"));
 
@@ -45,7 +45,7 @@ class StudentControllerTest {
     @Test
     @DirtiesContext
     void addStudent() throws Exception {
-        MvcResult response = mockMvc.perform(post("/students")
+        MvcResult response = mockMvc.perform(post("/api/students")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(
                                 """
