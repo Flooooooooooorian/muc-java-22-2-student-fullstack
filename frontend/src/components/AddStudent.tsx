@@ -40,9 +40,7 @@ export default function AddStudent(props: AddStudentProps) {
                 <MenuItem value={Gender.FEMALE}>Female</MenuItem>
                 <MenuItem value={Gender.DIVERS}>Divers</MenuItem>
             </Select>
-            <input className={"add-student__name"} placeholder={"Name"} value={name} onChange={onNameChange}/>
             <Button size={"large"} variant={"contained"} color={"success"} onClick={onSaveClick}>Save</Button>
-            <button className={"add-student__button"} onClick={onSaveClick}>Save</button>
         </div>
     )
 
