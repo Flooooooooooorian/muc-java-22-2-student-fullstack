@@ -21,7 +21,7 @@ class StudentServiceTest {
     @Test
     public void testListStudents() {
         //GIVEN
-        when(studentRepo.getStudents()).thenReturn(
+        when(studentRepo.findAll()).thenReturn(
                 List.of(
                         new Student("1", "Paul", Gender.MALE),
                         new Student("2", "Maria", Gender.FEMALE),
@@ -46,7 +46,7 @@ class StudentServiceTest {
     @Test
     public void testSearchStudent() {
         //GIVEN
-        when(studentRepo.getStudents()).thenReturn(
+        when(studentRepo.findAll()).thenReturn(
                 List.of(
                         new Student("1", "Paul"),
                         new Student("2", "Maria"),
@@ -70,7 +70,7 @@ class StudentServiceTest {
     public void testAddStudent() {
         //GIVEN
         Student studentToAdd = new Student("5", "Hans");
-        when(studentRepo.add(studentToAdd)).thenReturn(studentToAdd);
+        when(studentRepo.save(studentToAdd)).thenReturn(studentToAdd);
         StudentService studentService = new StudentService(studentRepo, idService);
 
         //WHEN
@@ -78,7 +78,7 @@ class StudentServiceTest {
 
         //THEN
         assertThat(actual, is(studentToAdd));
-        verify(studentRepo).add(studentToAdd);
+        verify(studentRepo).save(studentToAdd);
     }
 
     @Test
@@ -131,7 +131,7 @@ class StudentServiceTest {
         Student addedStudent = new Student("7abc", "Hans");
 
         when(idService.generateId()).thenReturn("7abc");
-        when(studentRepo.add(addedStudent)).thenReturn(addedStudent);
+        when(studentRepo.save(addedStudent)).thenReturn(addedStudent);
         StudentService studentService = new StudentService(studentRepo, idService);
 
         //WHEN
@@ -139,6 +139,6 @@ class StudentServiceTest {
 
         //THEN
         assertThat(actual, is(studentToAdd));
-        verify(studentRepo).add(studentToAdd);
+        verify(studentRepo).save(studentToAdd);
     }
 }
