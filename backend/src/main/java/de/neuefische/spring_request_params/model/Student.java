@@ -1,8 +1,13 @@
 package de.neuefische.spring_request_params.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Objects;
 
+@Document("students")
 public class Student {
+    @Id
     private String id;
     private String name;
 

@@ -22,7 +22,7 @@ public class StudentService {
     }
 
     public List<Student> list() {
-        return studentRepo.getStudents();
+        return studentRepo.findAll();
     }
     public Student findById(String id) {
         Optional<Student> optionalStudent = studentRepo.findById(id);
@@ -34,7 +34,7 @@ public class StudentService {
 
     public Student addStudent(Student student) {
         student.setId(idService.generateId());
-        return studentRepo.add(student);
+        return studentRepo.save(student);
     }
 
     public List<Student> search(String s) {
