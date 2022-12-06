@@ -18,6 +18,7 @@ public class UserController {
         if (principal != null) {
             return principal.getName();
         }
+
        return "anonymousUser";
     }
 
