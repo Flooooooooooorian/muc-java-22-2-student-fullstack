@@ -1,12 +1,18 @@
 import {Button, TextField} from "@mui/material";
 import {ChangeEvent, FormEvent, useState} from "react";
-import axios from "axios";
+import {useNavigate} from "react-router-dom";
+
+type LoginPageProps = {
+    login: (username: string, password: string) => Promise<string>
+}
 
 
-export default function LoginPage() {
+export default function LoginPage(props: LoginPageProps) {
 
     const [username, setUsername] = useState<string>("")
     const [password, setPassword] = useState<string>("")
+
+    const navigate = useNavigate()
 
     function onUsernameChange(event: ChangeEvent<HTMLInputElement>) {
         setUsername(event.target.value)
@@ -19,13 +25,10 @@ export default function LoginPage() {
     function onLoginSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
-        axios.post("/api/users/login", undefined, {
-            auth: {
-                username,
-                password
-            },
-        })
-            .then(console.log)
+        props.login(username, password)
+            .then(user => {
+                navigate("/students")
+            })
     }
 
     return (
