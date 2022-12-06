@@ -10,12 +10,12 @@ import useUser from "./hooks/useUser";
 
 function App() {
 
-    const {username, login} = useUser();
+    const {username, login, logout} = useUser();
 
   return (
     <div className="App">
         <BrowserRouter>
-            <NavigationBar />
+            <NavigationBar logout={logout}/>
             <h2>Hallo {username}!</h2>
 
             <Routes>

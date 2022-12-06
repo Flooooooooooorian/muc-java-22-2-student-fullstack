@@ -10,6 +10,15 @@ export default function useUser() {
             .then(setUsername)
     }, [])
 
+    function logout() {
+        return axios.post("/api/users/logout")
+            .then(response => response.data)
+            .then((data) => {
+                setUsername(data)
+                return data
+            })
+    }
+
     function login(username: string, password: string) {
         return axios.post("/api/users/login", undefined, {
             auth: {
@@ -24,5 +33,5 @@ export default function useUser() {
             })
     }
 
-    return {username, login}
+    return {username, login, logout}
 }
