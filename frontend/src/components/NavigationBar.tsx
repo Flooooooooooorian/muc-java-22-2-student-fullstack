@@ -8,6 +8,7 @@ export default function NavigationBar() {
             <NavLink to={"/"} >Startseite</NavLink>
             <NavLink to={"/home"} >Home</NavLink>
             <NavLink to={"/students"} >Students</NavLink>
+            <NavLink to={"/login"} >Login</NavLink>
         </div>
     )
 }
