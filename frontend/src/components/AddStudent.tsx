@@ -29,7 +29,7 @@ export default function AddStudent(props: AddStudentProps) {
     }
 
     return (
-        <div>
+        <div className={"add-student"}>
             <TextField placeholder={"Name"} value={name} onChange={onNameChange}/>
             <Select
                 value={gender}

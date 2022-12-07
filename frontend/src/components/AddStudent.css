@@ -11,3 +11,8 @@
     background-color: green;
     border-radius: 10px;
 }
+
+.add-student {
+    display: flex;
+    justify-content: center;
+}
