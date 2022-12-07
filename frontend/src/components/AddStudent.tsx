@@ -1,5 +1,5 @@
 import {Gender, NewStudent} from "../model/Student";
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, useCallback, useState} from "react";
 import "./AddStudent.css"
 import {Button, MenuItem, Select, SelectChangeEvent, TextField} from "@mui/material";
 
@@ -12,14 +12,17 @@ export default function AddStudent(props: AddStudentProps) {
     const [name, setName] = useState<string>("")
     const [gender, setGender] = useState<Gender>(Gender.DIVERS)
 
-    function onNameChange(event: ChangeEvent<HTMLInputElement>) {
-        setName(event.target.value)
-    }
+    const onNameChange = useCallback(
+        (event: ChangeEvent<HTMLInputElement>) => {
+            setName(event.target.value)
+        }, [])
 
     function onGenderChange(event: SelectChangeEvent) {
         console.log(event)
         setGender(event.target.value as Gender)
     }
+
+    const onGenderChangeCallback = useCallback(onGenderChange, []);
 
     function onSaveClick() {
         props.addStudent({name: name})
@@ -34,7 +37,7 @@ export default function AddStudent(props: AddStudentProps) {
             <Select
                 value={gender}
                 label="Gender"
-                onChange={onGenderChange}
+                onChange={onGenderChangeCallback}
             >
                 <MenuItem value={Gender.MALE}>Male</MenuItem>
                 <MenuItem value={Gender.FEMALE}>Female</MenuItem>
