@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -34,6 +35,7 @@ class StudentControllerTest {
 
     @Test
     @DirtiesContext
+    @WithMockUser
     void getStudents() throws Exception {
 
         mockMvc.perform(get("/api/students"))
@@ -44,6 +46,7 @@ class StudentControllerTest {
 
     @Test
     @DirtiesContext
+    @WithMockUser
     void addStudent() throws Exception {
         MvcResult response = mockMvc.perform(post("/api/students")
                         .contentType(MediaType.APPLICATION_JSON)
