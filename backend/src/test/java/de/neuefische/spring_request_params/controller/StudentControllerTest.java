@@ -5,7 +5,6 @@ import de.neuefische.spring_request_params.model.Student;
 import de.neuefische.spring_request_params.repo.StudentRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -13,7 +12,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -62,5 +61,21 @@ class StudentControllerTest {
         Student expected = new Student(result.getId(), result.getName(), result.getGender());
 
         assertEquals(result, expected);
+    }
+
+    @DirtiesContext
+    @Test
+    void getStudentById_shouldReturn404_whenIdIsInvalid() throws Exception {
+        mockMvc.perform(
+                        get("/api/students/DIESE_ID_GIBT_ES_NICHT"))
+                .andExpect(status().is(404));
+    }
+
+    @DirtiesContext
+    @Test
+    void addStudent_shouldReturn400_whenIdIsInPathVariable() throws Exception {
+        mockMvc.perform(
+                        post("/api/students/DIESE_ANFRAGE_IST_QUATSCH"))
+                .andExpect(status().is(400));
     }
 }
